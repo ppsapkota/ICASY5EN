@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Year 5 ICAS-style English Practice Quiz (50 Qs)</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f7f9fb;color:#222;margin:0;padding:20px;}
+  .container{max-width:900px;margin:0 auto;background:#fff;padding:24px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.08);}
+  h1{margin-top:0;font-size:1.5rem}
+  .meta{color:#555;margin-bottom:12px}
+  .question-box{margin-top:18px}
+  .question{font-weight:600}
+  .options{margin-top:10px}
+  .option{display:block;margin:8px 0;padding:8px;border-radius:6px;border:1px solid #e4e8ef;background:#fcfdff;cursor:pointer}
+  .option input{margin-right:10px}
+  .controls{margin-top:14px}
+  button{padding:8px 14px;border-radius:6px;border:0;background:#2b7cff;color:#fff;cursor:pointer;font-weight:600}
+  button:disabled{background:#c2d3ff;cursor:not-allowed}
+  .feedback{margin-top:12px;padding:12px;border-radius:6px;background:#f1f8ee;border:1px solid #d6efd0;color:#1f5a20;display:none}
+  .feedback.wrong{background:#fff5f5;border:1px solid #f6c7c7;color:#7a1f1f}
+  .score{float:right;background:#eef6ff;padding:6px 10px;border-radius:6px;color:#16428b;font-weight:600}
+  .footer{margin-top:20px;color:#666;font-size:0.9rem}
+  .explain{margin-top:8px;font-size:0.95rem}
+  .progress{margin-top:8px;font-size:0.95rem;color:#444}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Year 5 ICAS-style English Practice Quiz</h1>
+  <div class="meta">50 questions — select an answer and click <strong>Check Answer</strong> to see the correct answer and explanation.</div>
+  <div class="score" id="scoreBox">Score: 0 / 0</div>
+
+  <div id="quiz" class="question-box">
+    <!-- Question content injected by JavaScript -->
+  </div>
+
+  <div class="controls">
+    <button id="checkBtn">Check Answer</button>
+    <button id="nextBtn" disabled>Next Question</button>
+    <button id="restartBtn" style="background:#6c757d;margin-left:6px">Restart</button>
+  </div>
+
+  <div id="feedback" class="feedback"></div>
+  <div class="progress" id="progress"></div>
+  <div class="footer">Tip: Time yourself for practice. Read the explanation whether you were correct or not — that's where most learning happens.</div>
+</div>
+
+<script>
+// Data: questions, choices, correct index (0-based), explanation
+const questions = [
+  // Section A Vocabulary (1-10)
+  {q:"1. The explorer described the cave as <em>gloomy</em>. Which word best explains <em>gloomy</em>?",
+   choices:["Bright","Dark and sad","Noisy","Full of colour"], correct:1,
+   explain:"\"Gloomy\" means dark and often sad or subdued; not bright."},
+  {q:"2. The comedian’s joke made everyone _______.",
+   choices:["whisper","giggle","frown","sleep"], correct:1,
+   explain:"\"Giggle\" means to laugh quietly or lightly; that fits a comedian's effect."},
+  {q:"3. What does <em>fragile</em> mean?",
+   choices:["Very heavy","Easy to break","Very loud","Full of colours"], correct:1,
+   explain:"\"Fragile\" describes something that can be easily broken."},
+  {q:"4. Choose the word that is a synonym of <em>ancient</em>:",
+   choices:["Old","Modern","Tiny","Quick"], correct:0,
+   explain:"\"Ancient\" means very old; \"old\" is the synonym."},
+  {q:"5. The word <em>reluctant</em> most nearly means:",
+   choices:["eager","unwilling","hungry","surprised"], correct:1,
+   explain:"\"Reluctant\" means unwilling or hesitant."},
+  {q:"6. In “The wind howled through the trees,” <em>howled</em> most nearly means:",
+   choices:["whispered","made a loud noise","shone brightly","moved slowly"], correct:1,
+   explain:"Here, \"howled\" describes the wind making a loud, long noise."},
+  {q:"7. Replace the underlined phrase: “She finished the task <em>in no time</em>.”",
+   choices:["slowly","quickly","with difficulty","carefully"], correct:1,
+   explain:"\"In no time\" means very quickly."},
+  {q:"8. What does <em>scarce</em> mean?",
+   choices:["plenty of","rare or not enough","very large","very small"], correct:1,
+   explain:"\"Scarce\" means rare or insufficient in quantity."},
+  {q:"9. If something is <em>essential</em>, it is:",
+   choices:["unnecessary","important and needed","optional","unusual"], correct:1,
+   explain:"\"Essential\" means necessary or very important."},
+  {q:"10. Choose the best meaning of <em>sturdy</em>:",
+   choices:["weak","small","strong and not easily broken","expensive"], correct:2,
+   explain:"\"Sturdy\" means solid and strong, not easily broken."},
+
+  // Section B Grammar (11-20)
+  {q:"11. Choose the correct sentence.",
+   choices:["He don’t like carrots.","He does not like carrots.","He doesn’t likes carrots.","He not like carrots."], correct:1,
+   explain:"Use 'does not' (or 'doesn't') + base verb: 'He does not like carrots.'"},
+  {q:"12. Which is the correct plural of <em>child</em>?",
+   choices:["childs","childrens","children","childes"], correct:2,
+   explain:"The correct plural is 'children'."},
+  {q:"13. Choose the sentence with correct punctuation:",
+   choices:["I bought apples bananas and grapes.","I bought apples, bananas, and grapes.","I bought apples bananas, and grapes.","I bought, apples bananas and grapes."], correct:1,
+   explain:"Use commas to separate list items: 'apples, bananas, and grapes'."},
+  {q:"14. Neither Sam nor his friends _______ ready.",
+   choices:["is","are","was","were"], correct:0,
+   explain:"With 'neither... nor...' and singular items, use singular verb 'is' (here it treats the nearest subject 'Sam' as singular)."},
+  {q:"15. Choose the sentence with correct verb tense:",
+   choices:["Tomorrow we will go to the zoo.","Tomorrow we went to the zoo.","Tomorrow we go to the zoo yesterday.","Tomorrow we gone to the zoo."], correct:0,
+   explain:"Use future 'will' for a plan in the future: 'Tomorrow we will go...'."},
+  {q:"16. Which sentence is correct?",
+   choices:["Me and Tom went to the shop.","Tom and I went to the shop.","I and Tom went to the shop.","Went Tom and I to the shop."], correct:1,
+   explain:"The correct subject pronoun order is 'Tom and I went...'. 'Me' is object form."},
+  {q:"17. This puzzle is ____ than the last one.",
+   choices:["easy","easier","easiest","most easy"], correct:1,
+   explain:"Comparative of 'easy' is 'easier'."},
+  {q:"18. Which sentence uses a subordinating conjunction correctly?",
+   choices:["I will play, although it rains.","Although it rained, we still played outside.","It rained, although we still played outside.","We played although it."], correct:1,
+   explain:"'Although' can start a subordinate clause: 'Although it rained, we still played'."},
+  {q:"19. Identify the subject in: 'The noisy puppies chased the ball.'",
+   choices:["puppies","noisy","chased","ball"], correct:0,
+   explain:"The subject (doer) of the action is 'puppies'."},
+  {q:"20. Which sentence is punctuated correctly?",
+   choices:["“Please come,” asked Mum.","Please come asked Mum.","“Please come” asked Mum.","Please, come? asked Mum."], correct:0,
+   explain:"Direct speech needs quotation marks and the comma before the speech tag."},
+
+  // Section C Spelling & Punct (21-28)
+  {q:"21. Choose the correctly spelt word:",
+   choices:["acheive","achieve","acheeve","achive"], correct:1,
+   explain:"'Achieve' is the correct spelling."},
+  {q:"22. Which is correct?",
+   choices:["Its raining outside.","It’s raining outside.","Its’ raining outside.","Its raining outside?"], correct:1,
+   explain:"'It’s' is the contraction for 'it is'."},
+  {q:"23. Complete: '_____ going to the party tonight.'",
+   choices:["Their","There","They’re","Thair"], correct:2,
+   explain:"'They’re' is the contraction of 'they are'."},
+  {q:"24. Which sentence uses commas correctly for a list?",
+   choices:["I packed my hat, coat and gloves.","I packed my hat coat, and gloves.","I packed, my hat, coat and gloves.","I packed my hat, coat, and gloves."], correct:3,
+   explain:"Using the Oxford comma (last comma) is acceptable; D is clearly punctuated."},
+  {q:"25. Select the correct spelling:",
+   choices:["definately","definitely","definatly","definatlye"], correct:1,
+   explain:"'Definitely' is the correct form."},
+  {q:"26. Past tense of 'teach' is:",
+   choices:["teached","taught","teachted","teought"], correct:1,
+   explain:"The irregular past tense is 'taught'."},
+  {q:"27. Which sentence correctly uses an apostrophe?",
+   choices:["The cats tail was fluffy.","The cat’s tail was fluffy.","The cats’ tail was fluffy.","The cat tail’s was fluffy."], correct:1,
+   explain:"Possessive singular: 'the cat’s tail'."},
+  {q:"28. Correct capitalization:",
+   choices:["we visited the eiffel tower in paris.","We visited the Eiffel Tower in Paris.","We visited the eiffel Tower in Paris.","we visited the Eiffel tower in Paris."], correct:1,
+   explain:"Proper nouns and landmarks are capitalised: 'Eiffel Tower', 'Paris'."},
+
+  // Section D Passage A (29-34)
+  {q:`29. Passage A: "Liam watched the little boat drift away...". What does "chipped paint" suggest about the boat?`,
+   choices:["It is brand new.","It is old or worn.","It is very fast.","It is very small."], correct:1,
+   explain:"'Chipped' implies wear or age, not newness."},
+  {q:"30. In the passage, the river is compared to a:",
+   choices:["blue blanket","silver mirror","muddy pond","green field"], correct:1,
+   explain:"The text says the river reflected the clouds like a silver mirror."},
+  {q:"31. 'Refusing to sink' most likely means:",
+   choices:["The boat is very angry.","The boat keeps floating despite its condition.","The boat is sinking slowly.","The boat is making noise."], correct:1,
+   explain:"Figuratively, it means it continues to float despite wear."},
+  {q:"32. The overall mood of the passage is:",
+   choices:["frightened","adventurous and calm","angry","boring"], correct:1,
+   explain:"The mood is gentle and adventurous."},
+  {q:"33. Why does Liam feel the boat is 'a brave traveller'?",
+   choices:["Because it is made of steel","Because despite being worn, it continues on the river","Because it is very large","Because it is loud"], correct:1,
+   explain:"The boat continues despite being worn; Liam personifies it as brave."},
+  {q:"34. Which word shows Liam imagines the boat’s journey?",
+   choices:["chipped","bobbed","traveller","paint"], correct:2,
+   explain:"Calling the boat a 'traveller' is personification—Liam imagines a journey."},
+
+  // Section E Passage B (35-40)
+  {q:"35. What is the main idea of the bakery passage?",
+   choices:["A noisy bakery closed at night","The bakery creates a friendly atmosphere in the neighbourhood","The bakery only sells jam tarts","Mrs Alvarez is secretive"], correct:1,
+   explain:"The passage highlights friendly atmosphere and social interaction."},
+  {q:"36. Why did children love the jam tarts?",
+   choices:["Because they were salty","Because they were sticky and sweet","Because they were expensive","Because they were free"], correct:1,
+   explain:"The passage says the jam tarts were sticky, which children loved."},
+  {q:"37. 'Greeted' most nearly means:",
+   choices:["ignored","welcomed","ignored loudly","shouted at"], correct:1,
+   explain:"To 'greet' someone is to welcome them."},
+  {q:"38. Which detail suggests the bakery helps community friendships?",
+   choices:["The smell of bread","Neighbours stopping and chatting while buying loaves","The loaves are cheap","The bakery is on a corner"], correct:1,
+   explain:"Neighbours stopping and chatting shows social connection."},
+  {q:"39. What tone does the passage have?",
+   choices:["hostile","warm and friendly","scientific","mysterious"], correct:1,
+   explain:"The tone is warm and friendly."},
+  {q:"40. Which sentence is a fact from the passage?",
+   choices:["The bakery smells like roses.","Children despise jam tarts.","The bakery filled the street with the smell of warm bread.","Mrs Alvarez never smiled."], correct:2,
+   explain:"The passage explicitly states the street was filled with the smell of warm bread."},
+
+  // Section F Writing etc (41-50)
+  {q:"41. Improve: 'The cat ran quick across the yard.'",
+   choices:["The cat ran quickly across the yard.","The cat ran quicklier across the yard.","The cat ran quick across the yardly.","The cat run quickly across the yard."], correct:0,
+   explain:"'Quickly' is the correct adverb to modify 'ran'."},
+  {q:"42. Which sentence is persuasive?",
+   choices:["I enjoy playing chess.","You should try reading this book because it will inspire you.","The sky is blue.","Yesterday I went to the park."], correct:1,
+   explain:"Option B has a persuasive tone and reason."},
+  {q:"43. Best opening for a mystery story:",
+   choices:["The lamp was switched on.","The clock struck midnight and a shadow moved beneath the door.","I like chocolate.","The cat ate food."], correct:1,
+   explain:"Midnight and a moving shadow create tension—good for mystery."},
+  {q:"44. Identify active voice:",
+   choices:["The homework was finished by Maria.","The bell was rung.","Maria finished the homework.","The homework is being finished."], correct:2,
+   explain:"Active voice: subject performs action—'Maria finished...'."},
+  {q:"45. Which uses vivid imagery best?",
+   choices:["The tree stood.","The tree was green.","Moonlight poured like silver water over the quiet lake.","The tree had leaves."], correct:2,
+   explain:"Option C uses simile and sensory language to create an image."},
+  {q:"46. Fix: 'After the storm we fixed the house that collapsed.'",
+   choices:["After the storm, we fixed the collapsed house.","After the storm we fixed the house collapsed.","We fixed the house after the storm that collapsed.","After the storm we house fixed collapsed."], correct:0,
+   explain:"'After the storm, we fixed the collapsed house.' is clear and grammatical."},
+  {q:"47. Correct subject-verb agreement:",
+   choices:["The team of players are ready.","The team of players is ready.","The team of players were ready.","The team of players were readies."], correct:1,
+   explain:"'Team' is a collective noun treated as singular here: 'is ready'."},
+  {q:"48. Most appropriate for a formal letter:",
+   choices:["Hey, can you send me the file?","Could you please send the file at your earliest convenience?","Send the file now!","Yo, file please."], correct:1,
+   explain:"Option B is polite and formal."},
+  {q:"49. Replace 'nice' with a more formal word: 'She got the job because she was nice.'",
+   choices:["rude","pleasant","amiable","mean"], correct:2,
+   explain:"'Amiable' is a more formal synonym meaning friendly."},
+  {q:"50. Best for cause and effect:",
+   choices:["It rained, and we laughed.","Because it rained, the game was cancelled.","We sat down.","The game was fun."], correct:1,
+   explain:"'Because...' clearly shows cause and the resulting effect."}
+];
+
+// State
+let current = 0;
+let score = 0;
+let answeredCount = 0;
+
+// DOM refs
+const quizDiv = document.getElementById('quiz');
+const checkBtn = document.getElementById('checkBtn');
+const nextBtn = document.getElementById('nextBtn');
+const restartBtn = document.getElementById('restartBtn');
+const feedbackDiv = document.getElementById('feedback');
+const scoreBox = document.getElementById('scoreBox');
+const progress = document.getElementById('progress');
+
+// Initialize
+function loadQuestion(index){
+  const item = questions[index];
+  quizDiv.innerHTML = `
+    <div class="question"><span>${item.q}</span></div>
+    <div class="options" id="options">
+      ${item.choices.map((c,i)=>`<label class="option"><input type="radio" name="choice" value="${i}"> <strong>${String.fromCharCode(65+i)}.</strong> ${c}</label>`).join('')}
+    </div>
+  `;
+  feedbackDiv.style.display='none';
+  feedbackDiv.className='feedback';
+  nextBtn.disabled=true;
+  checkBtn.disabled=false;
+  updateProgress();
+}
+
+// Update score display
+function updateScore(){
+  scoreBox.textContent = `Score: ${score} / ${answeredCount}`;
+}
+
+// Update progress text
+function updateProgress(){
+  progress.textContent = `Question ${current+1} of ${questions.length}`;
+}
+
+// Check answer
+function checkAnswer(){
+  const options = document.getElementsByName('choice');
+  let selected = -1;
+  for(const opt of options){
+    if(opt.checked){ selected = Number(opt.value); break; }
+  }
+  if(selected === -1){
+    alert('Please select an answer before checking.');
+    return;
+  }
+  checkBtn.disabled=true;
+  nextBtn.disabled=false;
+
+  const item = questions[current];
+  answeredCount++;
+  if(selected === item.correct){
+    score++;
+    feedbackDiv.className='feedback';
+    feedbackDiv.style.display='block';
+    feedbackDiv.innerHTML = `<strong>Correct.</strong> <div class="explain">${item.explain}</div>`;
+  } else {
+    feedbackDiv.className='feedback wrong';
+    feedbackDiv.style.display='block';
+    const correctLetter = String.fromCharCode(65 + item.correct);
+    const correctText = item.choices[item.correct];
+    feedbackDiv.innerHTML = `<strong>Incorrect.</strong> The correct answer is <strong>${correctLetter}. ${correctText}</strong>.<div class="explain">${item.explain}</div>`;
+  }
+  updateScore();
+
+  // disable options to prevent changing answers
+  for(const opt of options){ opt.disabled = true; }
+}
+
+// Next question
+function nextQuestion(){
+  current++;
+  if(current >= questions.length){
+    // finished
+    quizDiv.innerHTML = `<h2>Quiz complete</h2><p>Your final score is <strong>${score} / ${questions.length}</strong>.</p>
+      <p>Thank you for practising. You can restart to try again.</p>`;
+    checkBtn.disabled = true;
+    nextBtn.disabled = true;
+    restartBtn.disabled = false;
+    feedbackDiv.style.display='none';
+    progress.textContent = `Completed ${questions.length} questions.`;
+    return;
+  }
+  loadQuestion(current);
+  updateScore();
+}
+
+// Restart
+function restart(){
+  if(!confirm('Restart the quiz? Your current score will be cleared.')) return;
+  current = 0; score = 0; answeredCount = 0;
+  loadQuestion(current);
+  updateScore();
+  checkBtn.disabled=false;
+  nextBtn.disabled=true;
+}
+
+// Events
+checkBtn.addEventListener('click', checkAnswer);
+nextBtn.addEventListener('click', nextQuestion);
+restartBtn.addEventListener('click', restart);
+
+// Start
+loadQuestion(0);
+updateScore();
+
+</script>
+</body>
+</html>

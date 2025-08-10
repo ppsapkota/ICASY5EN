@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICAS English Year 5 Practice Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        .question-block {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #ecf0f1;
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 5px;
+        }
+        .options label {
+            display: block;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .options label:hover {
+            background-color: #e0e6e8;
+        }
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .correct {
+            color: #27ae60;
+        }
+        .incorrect {
+            color: #c0392b;
+        }
+        .explanation {
+            font-style: italic;
+            margin-top: 10px;
+            padding: 10px;
+            background: #dff0d8;
+            border-left: 3px solid #2ecc71;
+            border-radius: 3px;
+        }
+        .passage {
+            background: #f9f9f9;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .check-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ICAS English Year 5 Practice Quiz</h1>
+    <p>This quiz is designed to help students prepare for the ICAS English exam by covering a range of topics including comprehension, vocabulary, grammar, and punctuation.</p>
+
+    <h2>Section 1: Comprehension 📖</h2>
+    <div class="passage">
+        <h3>Passage: The Mysterious Island</h3>
+        <p>Liam and his younger sister, Mia, loved exploring. One sunny Saturday, they packed a small bag with sandwiches and a compass and set off for the old jetty. Their uncle had told them a story about a mysterious island just a short boat ride away.</p>
+        <p>"Look, Mia! I can see it!" Liam shouted, pointing to a small landmass barely visible through the morning mist. A tiny, rocky beach was the only place to land. As they stepped onto the sand, a strange silence fell. The usual sounds of seagulls and waves were gone.</p>
+        <p>They followed a narrow path that led them into a dense forest. Towering ferns and ancient-looking trees blocked out the sun. Suddenly, they heard a faint melody. It sounded like a flute, but no one was around. They followed the sound until they reached a clearing. In the middle of the clearing was a single, beautiful flower glowing with a soft, blue light.</p>
+        <p>Mia gasped. "It's the Moonpetal flower!" she whispered. "Uncle said it only blooms once every hundred years and makes a magical sound." The melody grew louder, and a warm, sweet scent filled the air. They knew they had found something truly special.</p>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">1. Why did Liam and Mia decide to explore the island?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q1" value="A"> A) They were bored and had nothing else to do.</label></li>
+            <li><label><input type="radio" name="q1" value="B"> B) Their uncle told them a story about it.</label></li>
+            <li><label><input type="radio" name="q1" value="C"> C) They wanted to find a hidden treasure.</label></li>
+            <li><label><input type="radio" name="q1" value="D"> D) They were looking for a place to have a picnic.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">The passage states, "Their uncle had told them a story about a mysterious island." This is the direct reason for their trip.</p>
+        </div>
+    </div>
+    
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">2. What did Liam and Mia take with them on their adventure?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q2" value="A"> A) A map and a bottle of water.</label></li>
+            <li><label><input type="radio" name="q2" value="B"> B) Sandwiches and a compass.</label></li>
+            <li><label><input type="radio" name="q2" value="C"> C) A flashlight and a rope.</label></li>
+            <li><label><input type="radio" name="q2" value="D"> D) A small boat and fishing gear.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">The passage says they "packed a small bag with sandwiches and a compass."</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="C">
+        <p class="question">3. What was unusual about the beach when they first arrived?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q3" value="A"> A) The sand was a strange color.</label></li>
+            <li><label><input type="radio" name="q3" value="B"> B) It was very crowded with people.</label></li>
+            <li><label><input type="radio" name="q3" value="C"> C) There was a strange silence.</label></li>
+            <li><label><input type="radio" name="q3" value="D"> D) The waves were very big.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is C.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is C.</p>
+            <p class="explanation">The passage notes, "A strange silence fell. The usual sounds of seagulls and waves were gone."</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">4. How did Liam and Mia find the clearing?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q4" value="A"> A) They saw a bright light.</label></li>
+            <li><label><input type="radio" name="q4" value="B"> B) They followed the sound of a melody.</label></li>
+            <li><label><input type="radio" name="q4" value="C"> C) They used their compass to navigate.</label></li>
+            <li><label><input type="radio" name="q4" value="D"> D) They followed a trail of footprints.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">The text mentions, "Suddenly, they heard a faint melody... They followed the sound until they reached a clearing."</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">5. What was the "Moonpetal flower" doing?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q5" value="A"> A) It was making a strange noise and glowing blue.</label></li>
+            <li><label><input type="radio" name="q5" value="B"> B) It was glowing blue and making a magical sound.</label></li>
+            <li><label><input type="radio" name="q5" value="C"> C) It was growing taller and smelling like candy.</label></li>
+            <li><label><input type="radio" name="q5" value="D"> D) It was making the air cold and misty.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">The passage describes the flower as "glowing with a soft, blue light" and producing a "magical sound" (the melody).</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="C">
+        <p class="question">6. Based on the passage, what can we infer about Liam and Mia's uncle?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q6" value="A"> A) He is a grumpy person who doesn't like adventures.</label></li>
+            <li><label><input type="radio" name="q6" value="B"> B) He is a boat captain who sails the seas.</label></li>
+            <li><label><input type="radio" name="q6" value="C"> C) He is a storyteller who knows about the island.</label></li>
+            <li><label><input type="radio" name="q6" value="D"> D) He is a scientist who studies rare plants.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is C.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is C.</p>
+            <p class="explanation">The passage states that the uncle "had told them a story" about the island and the flower. This suggests he is a storyteller who passed down local knowledge.</p>
+        </div>
+    </div>
+
+    <h2>Section 2: Vocabulary 💡</h2>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">7. Choose the correct meaning of the word <b>'ancient'</b> as used in the passage: "Towering ferns and ancient-looking trees blocked out the sun."</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q7" value="A"> A) Very new</label></li>
+            <li><label><input type="radio" name="q7" value="B"> B) Very old</label></li>
+            <li><label><input type="radio" name="q7" value="C"> C) Very small</label></li>
+            <li><label><input type="radio" name="q7" value="D"> D) Very colorful</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">'Ancient' means extremely old.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="C">
+        <p class="question">8. What is a <b>synonym</b> for the word <b>'faint'</b> in the phrase "a faint melody"?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q8" value="A"> A) Loud</label></li>
+            <li><label><input type="radio" name="q8" value="B"> B) Clear</label></li>
+            <li><label><input type="radio" name="q8" value="C"> C) Weak</label></li>
+            <li><label><input type="radio" name="q8" value="D"> D) Annoying</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is C.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is C.</p>
+            <p class="explanation">A 'faint' sound is not strong or clear; it is weak.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">9. Which word is the <b>antonym</b> of <b>'dense'</b>?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q9" value="A"> A) Thick</label></li>
+            <li><label><input type="radio" name="q9" value="B"> B) Sparse</label></li>
+            <li><label><input type="radio" name="q9" value="C"> C) Crowded</label></li>
+            <li><label><input type="radio" name="q9" value="D"> D) Heavy</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">'Dense' means closely packed together. 'Sparse' means thinly scattered or not dense.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="D">
+        <p class="question">10. In the sentence, "They followed a <b>narrow</b> path," what does <b>'narrow'</b> mean?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q10" value="A"> A) Wide</label></li>
+            <li><label><input type="radio" name="q10" value="B"> B) Long</label></li>
+            <li><label><input type="radio" name="q10" value="C"> C) Difficult to follow</label></li>
+            <li><label><input type="radio" name="q10" value="D"> D) Small in width</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is D.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is D.</p>
+            <p class="explanation">A 'narrow' path is one that has a small width.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">11. Choose the word that best completes the sentence: The magician performed a trick, and the rabbit <b>__</b> from the hat.</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q11" value="A"> A) disappeared</label></li>
+            <li><label><input type="radio" name="q11" value="B"> B) appeared</label></li>
+            <li><label><input type="radio" name="q11" value="C"> C) changed</label></li>
+            <li><label><input type="radio" name="q11" value="D"> D) escaped</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">The rabbit 'appeared' from the hat, which is a common magic trick.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">12. The word <b>'melody'</b> refers to:</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q12" value="A"> A) A type of plant.</label></li>
+            <li><label><input type="radio" name="q12" value="B"> B) A sequence of musical notes.</label></li>
+            <li><label><input type="radio" name="q12" value="C"> C) A type of tree.</label></li>
+            <li><label><input type="radio" name="q12" value="D"> D) A type of glowing light.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">A 'melody' is a succession of musical tones.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="A">
+        <p class="question">13. The word <b>'glistened'</b> means to:</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q13" value="A"> A) Shine with a sparkling light.</label></li>
+            <li><label><input type="radio" name="q13" value="B"> B) Make a loud noise.</label></li>
+            <li><label><input type="radio" name="q13" value="C"> C) Become very hot.</label></li>
+            <li><label><input type="radio" name="q13" value="D"> D) Smell very sweet.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is A.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is A.</p>
+            <p class="explanation">'Glistened' describes a sparkling or shining quality, often from a wet surface.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="A">
+        <p class="question">14. Choose the word that means the opposite of <b>'rare'</b>:</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q14" value="A"> A) Common</label></li>
+            <li><label><input type="radio" name="q14" value="B"> B) Expensive</label></li>
+            <li><label><input type="radio" name="q14" value="C"> C) Unusual</label></li>
+            <li><label><input type="radio" name="q14" value="D"> D) Valuable</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is A.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is A.</p>
+            <p class="explanation">'Rare' means something that is not common. The opposite is 'common'.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="C">
+        <p class="question">15. What does it mean to be <b>'curious'</b>?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q15" value="A"> A) To be angry.</label></li>
+            <li><label><input type="radio" name="q15" value="B"> B) To be lazy.</label></li>
+            <li><label><input type="radio" name="q15" value="C"> C) To be eager to know or learn something.</label></li>
+            <li><label><input type="radio" name="q15" value="D"> D) To be scared of everything.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is C.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is C.</p>
+            <p class="explanation">To be 'curious' is to have a strong desire to know or learn something.</p>
+        </div>
+    </div>
+
+    <h2>Section 3: Grammar and Punctuation 🤔</h2>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">16. Choose the correct sentence.</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q16" value="A"> A) My brother and i went to the park.</label></li>
+            <li><label><input type="radio" name="q16" value="B"> B) My brother and I went to the park.</label></li>
+            <li><label><input type="radio" name="q16" value="C"> C) My brother and me went to the park.</label></li>
+            <li><label><input type="radio" name="q16" value="D"> D) My brother and me went to the park.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">'I' is always capitalized, and it is the correct pronoun to use as a subject in this sentence.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="C">
+        <p class="question">17. Which word in the following sentence is a <b>verb</b>? "The children happily played in the garden."</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q17" value="A"> A) The</label></li>
+            <li><label><input type="radio" name="q17" value="B"> B) happily</label></li>
+            <li><label><input type="radio" name="q17" value="C"> C) played</label></li>
+            <li><label><input type="radio" name="q17" value="D"> D) garden</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is C.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is C.</p>
+            <p class="explanation">'Played' is the action word in the sentence, making it the verb.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="C">
+        <p class="question">18. What is the correct way to write the plural of 'child'?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q18" value="A"> A) childs</label></li>
+            <li><label><input type="radio" name="q18" value="B"> B) child's</label></li>
+            <li><label><input type="radio" name="q18" value="C"> C) children</label></li>
+            <li><label><input type="radio" name="q18" value="D"> D) childrens</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is C.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is C.</p>
+            <p class="explanation">'Children' is the irregular plural form of 'child'.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="C">
+        <p class="question">19. Choose the sentence with the correct <b>apostrophe</b> use.</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q19" value="A"> A) The cats toy was missing.</label></li>
+            <li><label><input type="radio" name="q19" value="B"> B) The cats' toy was missing.</label></li>
+            <li><label><input type="radio" name="q19" value="C"> C) The cat's toy was missing.</label></li>
+            <li><label><input type="radio" name="q19" value="D"> D) The cats toy's was missing.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is C.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is C.</p>
+            <p class="explanation">The apostrophe shows possession. 'The cat's toy' means the toy belonging to the cat.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">20. Which sentence uses a <b>comma</b> correctly?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q20" value="A"> A) The tall man with the big red hat, sat down.</label></li>
+            <li><label><input type="radio" name="q20" value="B"> B) After a long day, we were all very tired.</label></li>
+            <li><label><input type="radio" name="q20" value="C"> C) I like apples oranges and bananas.</label></li>
+            <li><label><input type="radio" name="q20" value="D"> D) We had a delicious meal of fish, chips and salad.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">A comma is used after an introductory phrase like "After a long day."</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="C">
+        <p class="question">21. What is the correct past tense of the verb <b>'run'</b>?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q21" value="A"> A) runned</label></li>
+            <li><label><input type="radio" name="q21" value="B"> B) running</label></li>
+            <li><label><input type="radio" name="q21" value="C"> C) ran</label></li>
+            <li><label><input type="radio" name="q21" value="D"> D) runs</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is C.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is C.</p>
+            <p class="explanation">'Ran' is the irregular past tense of 'run'.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="D">
+        <p class="question">22. Choose the correct sentence.</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q22" value="A"> A) The sun shines brightly today.</label></li>
+            <li><label><input type="radio" name="q22" value="B"> B) The sun is shine brightly today.</label></li>
+            <li><label><input type="radio" name="q22" value="C"> C) The sun shined brightly today.</label></li>
+            <li><label><input type="radio" name="q22" value="D"> D) The sun is shining brightly today.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is D.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is D.</p>
+            <p class="explanation">'Is shining' is the present continuous tense, which is the correct form for an action happening now.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="D">
+        <p class="question">23. Which word in the sentence is a <b>preposition</b>? "The book is on the table."</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q23" value="A"> A) The</label></li>
+            <li><label><input type="radio" name="q23" value="B"> B) book</label></li>
+            <li><label><input type="radio" name="q23" value="C"> C) is</label></li>
+            <li><label><input type="radio" name="q23" value="D"> D) on</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is D.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is D.</p>
+            <p class="explanation">'On' shows the relationship between the book and the table.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="C">
+        <p class="question">24. Which sentence is a <b>question</b>?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q24" value="A"> A) What a great day</label></li>
+            <li><label><input type="radio" name="q24" value="B"> B) What a great day!</label></li>
+            <li><label><input type="radio" name="q24" value="C"> C) What a great day?</label></li>
+            <li><label><input type="radio" name="q24" value="D"> D) What a great day.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is C.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is C.</p>
+            <p class="explanation">Questions end with a question mark.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="A">
+        <p class="question">25. Identify the <b>adjective</b> in the sentence: "The big, fluffy dog barked loudly."</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q25" value="A"> A) big</label></li>
+            <li><label><input type="radio" name="q25" value="B"> B) dog</label></li>
+            <li><label><input type="radio" name="q25" value="C"> C) barked</label></li>
+            <li><label><input type="radio" name="q25" value="D"> D) loudly</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is A.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is A.</p>
+            <p class="explanation">'Big' describes the noun 'dog', making it an adjective. 'Fluffy' is also an adjective.</p>
+        </div>
+    </div>
+
+    <h2>Section 4: Spelling and Word Choice ✍️</h2>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">26. Choose the correct spelling:</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q26" value="A"> A) neccesary</label></li>
+            <li><label><input type="radio" name="q26" value="B"> B) necessary</label></li>
+            <li><label><input type="radio" name="q26" value="C"> C) necesary</label></li>
+            <li><label><input type="radio" name="q26" value="D"> D) neccessary</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">The correct spelling is 'necessary'.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">27. Choose the correct spelling:</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q27" value="A"> A) definately</label></li>
+            <li><label><input type="radio" name="q27" value="B"> B) definitely</label></li>
+            <li><label><input type="radio" name="q27" value="C"> C) definitly</label></li>
+            <li><label><input type="radio" name="q27" value="D"> D) definately</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">The correct spelling is 'definitely'.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">28. Choose the correct spelling:</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q28" value="A"> A) recieve</label></li>
+            <li><label><input type="radio" name="q28" value="B"> B) receive</label></li>
+            <li><label><input type="radio" name="q28" value="C"> C) receieve</label></li>
+            <li><label><input type="radio" name="q28" value="D"> D) recive</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">The correct spelling is 'receive'. Remember the rule: 'i' before 'e', except after 'c'.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">29. Choose the correct spelling:</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q29" value="A"> A) enviroment</label></li>
+            <li><label><input type="radio" name="q29" value="B"> B) environment</label></li>
+            <li><label><input type="radio" name="q29" value="C"> C) enviromint</label></li>
+            <li><label><input type="radio" name="q29" value="D"> D) enviroment</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">The correct spelling is 'environment'.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="A">
+        <p class="question">30. Choose the word that best completes the sentence: I like to <b>__</b> with my friends after school.</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q30" value="A"> A) play</label></li>
+            <li><label><input type="radio" name="q30" value="B"> B) pay</label></li>
+            <li><label><input type="radio" name="q30" value="C"> C) pla</label></li>
+            <li><label><input type="radio" name="q30" value="D"> D) pray</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is A.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is A.</p>
+            <p class="explanation">The correct word is 'play'.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="D">
+        <p class="question">31. Which sentence uses the correct form of <b>'their', 'they're', or 'there'</b>?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q31" value="A"> A) They're cat is sleeping.</label></li>
+            <li><label><input type="radio" name="q31" value="B"> B) Their going to the cinema.</label></li>
+            <li><label><input type="radio" name="q31" value="C"> C) The car is over they're.</label></li>
+            <li><label><input type="radio" name="q31" value="D"> D) It's their turn to play.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is D.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is D.</p>
+            <p class="explanation">'Their' is the possessive pronoun.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="C">
+        <p class="question">32. Which sentence uses the correct word?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q32" value="A"> A) The principal stood at the principle's office.</label></li>
+            <li><label><input type="radio" name="q32" value="B"> B) The principle stood at the principal's office.</label></li>
+            <li><label><input type="radio" name="q32" value="C"> C) The principal stood at the principal's office.</label></li>
+            <li><label><input type="radio" name="q32" value="D"> D) The principle stood at the principle's office.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is C.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is C.</p>
+            <p class="explanation">'Principal' means the head of a school. 'Principle' refers to a rule or belief.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="A">
+        <p class="question">33. Choose the correct spelling for the word meaning 'not dangerous':</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q33" value="A"> A) safe</label></li>
+            <li><label><input type="radio" name="q33" value="B"> B) saef</label></li>
+            <li><label><input type="radio" name="q33" value="C"> C) seif</label></li>
+            <li><label><input type="radio" name="q33" value="D"> D) saife</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is A.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is A.</p>
+            <p class="explanation">The correct spelling is 'safe'.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">34. Choose the correct word to complete the sentence: The wind <b>__</b> so hard it broke a tree branch.</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q34" value="A"> A) blue</label></li>
+            <li><label><input type="radio" name="q34" value="B"> B) blew</label></li>
+            <li><label><input type="radio" name="q34" value="C"> C) blow</label></li>
+            <li><label><input type="radio" name="q34" value="D"> D) blowed</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">'Blew' is the past tense of 'blow'. 'Blue' is a color.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="A">
+        <p class="question">35. The word that means 'to change from solid to liquid' is:</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q35" value="A"> A) melt</label></li>
+            <li><label><input type="radio" name="q35" value="B"> B) malt</label></li>
+            <li><label><input type="radio" name="q35" value="C"> C) milte</label></li>
+            <li><label><input type="radio" name="q35" value="D"> D) mealt</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is A.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is A.</p>
+            <p class="explanation">The correct word is 'melt'.</p>
+        </div>
+    </div>
+
+    <h2>Section 5: Sentence Structure and Clauses 📝</h2>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">36. Choose the sentence with the correct word order.</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q36" value="A"> A) I my book read in the library.</label></li>
+            <li><label><input type="radio" name="q36" value="B"> B) In the library I read my book.</label></li>
+            <li><label><input type="radio" name="q36" value="C"> C) Read I my book in the library.</label></li>
+            <li><label><input type="radio" name="q36" value="D"> D) My book in the library I read.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">This sentence follows the standard English word order: Subject (I), verb (read), object (my book), and then the adverbial phrase of place (in the library).</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">37. Which of the following is a <b>simple sentence</b>?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q37" value="A"> A) I like to swim, but my sister likes to run.</label></li>
+            <li><label><input type="radio" name="q37" value="B"> B) After school, I went to the park.</label></li>
+            <li><label><input type="radio" name="q37" value="C"> C) The sun was shining, so we went to the beach.</label></li>
+            <li><label><input type="radio" name="q37" value="D"> D) Because it was raining, we stayed inside and played board games.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">A simple sentence has one independent clause. "After school" is a phrase, and "I went to the park" is a single independent clause.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="A">
+        <p class="question">38. Combine these two sentences into one using a conjunction: "The dog barked loudly. The cat was not scared."</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q38" value="A"> A) The dog barked loudly, but the cat was not scared.</label></li>
+            <li><label><input type="radio" name="q38" value="B"> B) The dog barked loudly, and the cat was not scared.</label></li>
+            <li><label><input type="radio" name="q38" value="C"> C) The dog barked loudly, so the cat was not scared.</label></li>
+            <li><label><input type="radio" name="q38" value="D"> D) The dog barked loudly, for the cat was not scared.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is A.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is A.</p>
+            <p class="explanation">The conjunction 'but' correctly shows the contrast between the dog's action and the cat's reaction.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="C">
+        <p class="question">39. Choose the sentence that is a <b>compound sentence</b>.</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q39" value="A"> A) The rain fell heavily.</label></li>
+            <li><label><input type="radio" name="q39" value="B"> B) Since it was raining, we stayed inside.</label></li>
+            <li><label><input type="radio" name="q39" value="C"> C) It was raining, and we stayed inside.</label></li>
+            <li><label><input type="radio" name="q39" value="D"> D) We stayed inside because it was raining.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is C.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is C.</p>
+            <p class="explanation">A compound sentence has two or more independent clauses joined by a coordinating conjunction (and, but, or, so, etc.).</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">40. What is the <b>subject</b> of the sentence? "The big, friendly dog chased the red ball."</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q40" value="A"> A) The red ball</label></li>
+            <li><label><input type="radio" name="q40" value="B"> B) The big, friendly dog</label></li>
+            <li><label><input type="radio" name="q40" value="C"> C) chased</label></li>
+            <li><label><input type="radio" name="q40" value="D"> D) friendly</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">The subject is the noun or noun phrase that performs the action of the verb. 'The big, friendly dog' is the subject that did the chasing.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="C">
+        <p class="question">41. Choose the sentence with a <b>subordinate clause</b>.</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q41" value="A"> A) He sang a song.</label></li>
+            <li><label><input type="radio" name="q41" value="B"> B) He sang a song, and I clapped.</label></li>
+            <li><label><input type="radio" name="q41" value="C"> C) He sang a song because he was happy.</label></li>
+            <li><label><input type="radio" name="q41" value="D"> D) He sang a song, so I clapped.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is C.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is C.</p>
+            <p class="explanation">A subordinate clause starts with a subordinating conjunction like 'because' and cannot stand alone as a complete sentence.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">42. What is the correct way to punctuate the end of this sentence? "What a beautiful painting __"</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q42" value="A"> A) .</label></li>
+            <li><label><input type="radio" name="q42" value="B"> B) !</label></li>
+            <li><label><input type="radio" name="q42" value="C"> C) ?</label></li>
+            <li><label><input type="radio" name="q42" value="D"> D) ,</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">The sentence expresses strong emotion or surprise, so an exclamation mark is needed.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">43. Which sentence contains a <b>relative clause</b>?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q43" value="A"> A) I went to the shop to buy bread.</label></li>
+            <li><label><input type="radio" name="q43" value="B"> B) The boy, who was wearing a blue shirt, smiled.</label></li>
+            <li><label><input type="radio" name="q43" value="C"> C) He was happy and excited.</label></li>
+            <li><label><input type="radio" name="q43" value="D"> D) The cake was delicious, but it was too big.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">'Who was wearing a blue shirt' is a relative clause that provides more information about the subject, 'the boy'.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">44. Which sentence uses a <b>superlative adjective</b> correctly?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q44" value="A"> A) This is the most tallest building.</label></li>
+            <li><label><input type="radio" name="q44" value="B"> B) This is the tallest building.</label></li>
+            <li><label><input type="radio" name="q44" value="C"> C) This is the more tall building.</label></li>
+            <li><label><input type="radio" name="q44" value="D"> D) This building is more taller.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">The superlative form of 'tall' is 'tallest'. The word 'most' is not needed.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="A">
+        <p class="question">45. Choose the correct sentence with a <b>coordinating conjunction</b>.</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q45" value="A"> A) I went to the shop, for I needed milk.</label></li>
+            <li><label><input type="radio" name="q45" value="B"> B) I went to the shop because I needed milk.</label></li>
+            <li><label><input type="radio" name="q45" value="C"> C) When I went to the shop, I bought milk.</label></li>
+            <li><label><input type="radio" name="q45" value="D"> D) I needed milk, so I went to the shop.</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is A.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is A.</p>
+            <p class="explanation">'For' is a coordinating conjunction.</p>
+        </div>
+    </div>
+
+    <h2>Section 6: Figurative Language and Literary Devices ✨</h2>
+
+    <div class="question-block" data-correct-answer="C">
+        <p class="question">46. What type of figurative language is used in the sentence: "The wind whispered secrets through the trees."</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q46" value="A"> A) Simile</label></li>
+            <li><label><input type="radio" name="q46" value="B"> B) Metaphor</label></li>
+            <li><label><input type="radio" name="q46" value="C"> C) Personification</label></li>
+            <li><label><input type="radio" name="q46" value="D"> D) Hyperbole</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is C.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is C.</p>
+            <p class="explanation">Personification is giving human qualities or actions to non-human things. 'Whispered' is a human action.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="D">
+        <p class="question">47. "The sun was a giant orange in the sky." This is an example of:</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q47" value="A"> A) Simile</label></li>
+            <li><label><input type="radio" name="q47" value="B"> B) Personification</label></li>
+            <li><label><input type="radio" name="q47" value="C"> C) Alliteration</label></li>
+            <li><label><input type="radio" name="q47" value="D"> D) Metaphor</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is D.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is D.</p>
+            <p class="explanation">A metaphor is a figure of speech that directly compares two unlike things without using 'like' or 'as'. The sun is described as an orange.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">48. The phrase "as brave as a lion" is an example of:</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q48" value="A"> A) Metaphor</label></li>
+            <li><label><input type="radio" name="q48" value="B"> B) Simile</label></li>
+            <li><label><input type="radio" name="q48" value="C"> C) Alliteration</label></li>
+            <li><label><input type="radio" name="q48" value="D"> D) Personification</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">A simile uses the words 'like' or 'as' to compare two different things.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="B">
+        <p class="question">49. "Peter Piper picked a peck of pickled peppers." This is an example of:</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q49" value="A"> A) Simile</label></li>
+            <li><label><input type="radio" name="q49" value="B"> B) Alliteration</label></li>
+            <li><label><input type="radio" name="q49" value="C"> C) Onomatopoeia</label></li>
+            <li><label><input type="radio" name="q49" value="D"> D) Personification</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is B.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is B.</p>
+            <p class="explanation">Alliteration is the repetition of the same sound at the beginning of words in a phrase. The 'P' sound is repeated.</p>
+        </div>
+    </div>
+
+    <div class="question-block" data-correct-answer="C">
+        <p class="question">50. What type of figurative language is the word 'buzz' in the sentence: "The bee went buzz."</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q50" value="A"> A) Simile</label></li>
+            <li><label><input type="radio" name="q50" value="B"> B) Metaphor</label></li>
+            <li><label><input type="radio" name="q50" value="C"> C) Onomatopoeia</label></li>
+            <li><label><input type="radio" name="q50" value="D"> D) Hyperbole</label></li>
+        </ul>
+        <button class="check-btn" onclick="checkAnswer(this)">Check Answer</button>
+        <div class="feedback-container hide">
+            <p class="feedback correct">Correct! The answer is C.</p>
+            <p class="feedback incorrect">Incorrect. The correct answer is C.</p>
+            <p class="explanation">Onomatopoeia is a word that imitates a natural sound. 'Buzz' is the sound a bee makes.</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function checkAnswer(button) {
+        const questionBlock = button.closest('.question-block');
+        const correctAnswer = questionBlock.dataset.correctAnswer;
+        const selectedAnswer = questionBlock.querySelector('input[type="radio"]:checked');
+        const feedbackContainer = questionBlock.querySelector('.feedback-container');
+
+        // Hide all feedback first
+        feedbackContainer.classList.add('hide');
+        feedbackContainer.querySelector('.correct').classList.add('hide');
+        feedbackContainer.querySelector('.incorrect').classList.add('hide');
+
+        if (selectedAnswer) {
+            const userAnswer = selectedAnswer.value;
+            if (userAnswer === correctAnswer) {
+                feedbackContainer.querySelector('.correct').classList.remove('hide');
+            } else {
+                feedbackContainer.querySelector('.incorrect').classList.remove('hide');
+            }
+            feedbackContainer.classList.remove('hide');
+        } else {
+            alert('Please select an answer first!');
+        }
+    }
+</script>
+
+</body>
+</html>
